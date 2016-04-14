@@ -1,0 +1,50 @@
+<?php
+require_once("conexionh.php");
+$conexion=new conexion();
+$conexion->conectar();	
+include ('class.ezpdf.php');
+$pdf =& new Cezpdf('LETTER');
+$pdf->selectFont('../fonts/courier.afm');
+
+$sql="select * from Intermedio2014 where Plantel='Azcapotzalco' && Grupo='301'";
+$sql=$conexion->consulta($sql);
+		
+$ixx=0;
+while($datatmp = mysql_fetch_array($sql)) {
+	$array_print=$datatmp;
+	//$ixx=$ixx+1;
+	//$data[] = array_merge($datatmp,array('num'=>$ixx));
+}
+			
+	$titles = array(
+	'Cuenta'=>'Número de Cuenta',
+	'Nombre'=>'Nombre',
+	't1'=>'Be',
+	't10'=>'Listening',
+	't11'=>'Reading',
+	't13'=>'Simple present',
+	't14'=>'Comparatives / Superlatives',
+	't15'=>'Past Be',
+	't16'=>'There was / There were',
+	't17'=>'Past tense',
+	't12'=>'Resultado'
+	);
+			
+$data=array('Uno'=>'Uno','Dos'=>'Dos', 'Tres'=>'Tres');	
+print_r($data);
+print_r($datatmp);
+	$options = array(
+	'showHeadings'=>1,
+	'shadeCol'=>array(0.9,0.9,0.9),
+	'xOrientation'=>'center',
+	'width'=>500
+	);
+$txttitle = "Pronto aparecerá la información que necesita, disculpe las molestias"."\n\n\n";
+$pdf->ezText($txttitle, 12);
+$pdf->ezTable($data,$titles, '', $options);
+$pdf->ezText("\n\n\n", 10);
+$pdf->ezText("Fecha: ".$sql."\n", 10);
+$pdf->ezText("Fecha: ".date("d/m/Y")."\n", 10);
+$pdf->ezText("Hora: ".date("H:i:s")."\n\n", 10);
+//$pdf->ezStream();
+?>

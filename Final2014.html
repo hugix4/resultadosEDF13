@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+	<head>
+	<link href="Favicon.ico" type="image/x-icon" rel="shortcut icon" />
+	 <!--[if lt IE 9]> 
+	<script type="text/javascript"> 
+	   document.createElement("nav"); 
+	   document.createElement("header"); 
+	   document.createElement("footer"); 
+	   document.createElement("section"); 
+	   document.createElement("article"); 
+	   document.createElement("aside"); 
+	   document.createElement("hgroup"); 
+	</script> 
+	<![endif]-->
+		<title>Coordinaci&oacute;n General de Lenguas UNAM</title>
+		<link rel="stylesheet" href="css/hugixR.css" type="text/css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+	
+	$('ul.tabs li').click(function(){
+		var tab_id = $(this).attr('data-tab');
+
+		$('ul.tabs li').removeClass('current');
+		$('.tab-content').removeClass('current');
+
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+			})
+
+		})
+  </script>
+		 
+	 <div id="loop"><img border="0" alt="Universidad Nacional Aut&oacute;noma de M&eacute;xico, Coordinaci&oacute;n General de Lenguas" src="images/CGLh1a.png"  width="1200px" height="20%" align="center" border="0" usemap="#CGLh"/></a>
+<table border=0 width="100%"><tr><td align="center">
+<map name="CGLh"> 
+<area alt="Universidad Nacional Aut&oacute;noma de M&eacute;xico" shape="rect" coords="0,0,549,120" href="http://www.unam.mx">
+<area alt="Coordinaci&oacute;n General de Lenguas" shape="rect" coords="550,0,1300,120" href="http://www.cgl.unam.mx">
+</map>
+
+ </table></div>
+	</head>	
+	<body>
+	
+		<style>
+			.container{
+				width: 60%;
+				margin: 0 auto;
+			}
+			ul.tabs{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			ul.tabs li{
+				background: #dbae18;
+				color: #000;
+				display: inline-block;
+				padding: 10px 15px;
+				cursor: pointer;
+			}
+
+			ul.tabs li.current{
+				background: #3078ef;
+				color: #fff;
+			}
+
+			.tab-content{
+				display: none;
+				background: #3078ef;
+				padding: 15px;
+			}
+
+			.tab-content.current{
+				display: inherit;
+			}
+		</style> 
+<!--****************************Esta es la sección destinada a la barra del menú principal de todo el portal********************************************-->	
+	<div id="menu">			
+					<ul class="menu">
+						</br><b style="color: #000066;">Resultados del Examen Diagnóstico Final 2014</b>										
+					</ul>
+	</div>
+<!--****************************Termino de la sección de la barra del menú principal de todo el portal********************************************-->	
+
+<div id="wrapper"><!-- Aquí se envuelve todo el contenido de la página -->
+	<section id="main"><!-- contenido principal y menus laterales -->				        		
+		
+		
+		<br/>
+		<div class="container">
+
+	<ul class="tabs">
+		<li class="tab-link current" data-tab="tab-1"><b>Alumno</b></li>		
+		<li class="tab-link" data-tab="tab-3"><b>Profesor</b></li>
+	</ul>
+
+	<div id="tab-1" class="tab-content current">		
+		<form action="Final2014.php" method="post">	<p class="eval" style="text-align:center;">
+		<?php if($_get["errorusuario"]=="si"){?>
+		<b>Datos incorrectos</b>
+			<?php }else{?>
+				<br/><br/><b>Bienvenido</b><br/><br/>Conoce tu resultado<br>
+			<?php } ?>
+		<br>		
+			#Cuenta:&nbsp;<input type="text" name="Cuenta" size="6" maxlength="9">
+		<br><br><br>
+		<input type="submit" value="Consultar">	
+		</p></form>
+	</div>
+	<div id="tab-3" class="tab-content">
+		 <form action="Final2014.php" method="post">	<p class="eval" style="text-align:center;">
+		<?php if($_get["errorusuario"]=="si"){?>
+		<b>Datos incorrectos</b>
+			<?php }else{?>
+				<br><br><b>Conoce como le fue a tu grupo en este examen</b><br/><br/>
+				<font size='1'>(Las calificaciones se van subiendo conforme llegan, si aún no aparecen todos tus alumnos, intenta más tarde)</font><br/><br/>
+				Plantel:
+				<select name="Plantel" onChange="grupos()">
+					<option value="ENP 1">ENP 1</option>
+					<option value="ENP 2">ENP 2</option>
+					<option value="ENP 3">ENP 3</option>
+					<option value="ENP 4">ENP 4</option>
+					<option value="ENP 5">ENP 5</option>
+					<option value="ENP 6">ENP 6</option>
+					<option value="ENP 7">ENP 7</option>
+					<option value="ENP 8">ENP 8</option>
+					<option value="ENP 9">ENP 9</option>
+					<option value="Azcapotzalco">CCH Azcapotzalco</option>
+					<option value="Naucalpan">CCH Naucalpan</option>
+					<option value="Oriente">CCH Oriente</option>
+					<option value="Sur">CCH Sur</option>
+					<option value="Vallejo">CCH Vallejo</option>
+				</select><br>
+			<?php } ?>
+		<br/>El grupo debe ir junto a la sección, sin nada más, ejemplos: 120B, 430A, 604, 310A<br/>		
+			Grupo:&nbsp;<input type="text" name="Grupo" size="3" maxlength="4">
+		<br><br><br>
+		<input type="submit" value="Consultar">		
+		</p></form>
+	</div>
+	
+
+
+	
+	
+</div><!-- container --><br/><br/>
+		
+		
+		
+		
+	</section><!-- Este es el fin tanto de las barras laterales como de el contenido-->	
+	<footer>
+					<section id="footer-area">
+						<section id="footer-outer-block">
+								<aside class="footer-segment">
+											<ul>									
+												<p class="foot">Hecho en M&eacute;xico, <a href="http://www.unam.mx">Universidad Nacional Aut&oacute;noma de M&eacute;xico (UNAM)</a>, todos los derechos reservados 2009 - 2012. Esta p&aacute;gina puede ser reproducida con fines no lucrativos, siempre y cuando se cite la fuente completa y su direcci&oacute;n electr&oacute;nica, y no se mutile. De otra forma requiere permiso previo por escrito de la instituci&oacute;n.<a href="creditos.html">Cr&eacute;ditos</a></p>
+												
+											</ul>
+								</aside><!-- primer columna del footer -->		
+						</section><!-- Aqui se termina el footer editable -->
+					</section><!-- Fin del espacio del footer -->
+			</footer>
+</div><!-- Fin de la "envoltura" -->
+<!--Ingeniero Hugo Luna a.k.a. hugix4-->
+</body>
+</html>
